@@ -1,0 +1,65 @@
+
+<div class="contenedor-principal">
+
+  <app-pedido
+    (pizzaAgregada)="agregarPizza($event)"
+    (clienteActualizado)="actualizarCliente($event)">
+  </app-pedido>
+
+  <div class="seccion-inferior">
+
+    <app-detalle-pedido
+      [pizzas]="pizzas"
+      (quitar)="quitarPizza($event)"
+      (terminar)="terminarPedido()">
+    </app-detalle-pedido>
+
+    <app-ventas
+      [ventas]="ventas"
+      (consultar)="consultarVentas($event)"
+      (mostrarHoy)="cargarVentas()"
+      (verDetalle)="verDetalleVenta($event)">
+    </app-ventas>
+
+  </div>
+
+  <div class="detalle-venta" *ngIf="detalleSeleccionado">
+
+    <h3>Detalle de la venta #{{detalleSeleccionado.pedido.idpedido}}</h3>
+
+    <p><strong>Cliente:</strong> {{detalleSeleccionado.pedido.nombre}}</p>
+    <p><strong>Dirección:</strong> {{detalleSeleccionado.pedido.direccion}}</p>
+    <p><strong>Teléfono:</strong> {{detalleSeleccionado.pedido.telefono}}</p>
+    <p><strong>Fecha:</strong> {{detalleSeleccionado.pedido.fecha}}</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Tamaño</th>
+          <th>Ingredientes</th>
+          <th>Cantidad</th>
+          <th>Subtotal</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let pizza of detalleSeleccionado.pizzas">
+          <td>{{pizza.tamano}}</td>
+          <td>{{pizza.ingredientes.join(', ')}}</td>
+          <td>{{pizza.cantidad}}</td>
+          <td>{{pizza.subtotal | currency:'MXN'}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Total: {{detalleSeleccionado.pedido.total | currency:'MXN'}}</h3>
+
+    <button type="button" (click)="cerrarDetalle()">
+      Cerrar detalle
+    </button>
+
+  </div>
+
+  <p *ngIf="mensajeDetalle">{{mensajeDetalle}}</p>
+
+</div>

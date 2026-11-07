@@ -1,0 +1,45 @@
+
+<div class="detalle-contenedor">
+
+  <h3>Detalle del pedido</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Tamaño</th>
+        <th>Ingredientes</th>
+        <th>Núm. Pizzas</th>
+        <th>Subtotal</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr
+        *ngFor="let pizza of pizzas; let i = index"
+        (click)="seleccionada = i"
+        [class.seleccionada]="seleccionada === i">
+
+        <td>
+          <input
+            type="radio"
+            name="pizzaSeleccionada"
+            [checked]="seleccionada === i">
+        </td>
+
+        <td>{{pizza.tamano}}</td>
+        <td>{{pizza.ingredientes.join(', ')}}</td>
+        <td>{{pizza.cantidad}}</td>
+        <td>{{pizza.subtotal | currency:'MXN'}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="total">Total: {{total | currency:'MXN'}}</p>
+
+  <div class="botones">
+    <button type="button" (click)="quitarPizza()">Quitar</button>
+    <button type="button" (click)="terminarPedido()">Terminar</button>
+  </div>
+
+</div>

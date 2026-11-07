@@ -1,0 +1,8 @@
+angular/node_modules/
+angular/.angular/
+flask/.env/
+flask/__pycache__/
+__pycache__/
+*.pyc
+.env
+.env.*

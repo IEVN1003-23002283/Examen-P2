@@ -1,0 +1,87 @@
+
+<div class="pedido-contenedor">
+
+  <h3>Datos del pedido</h3>
+
+  <form [formGroup]="formulario" (ngSubmit)="agregarPizza()">
+
+    <div class="datos-cliente">
+
+      <div>
+        <label>Nombre:</label>
+        <input type="text" formControlName="nombre">
+      </div>
+
+      <div>
+        <label>Dirección:</label>
+        <input type="text" formControlName="direccion">
+      </div>
+
+      <div>
+        <label>Teléfono:</label>
+        <input type="tel" formControlName="telefono">
+      </div>
+
+      <div>
+        <label>Fecha:</label>
+        <input type="date" formControlName="fecha">
+      </div>
+
+    </div>
+
+    <div class="opciones-pizza">
+
+      <fieldset>
+        <legend>Tamaño Pizza</legend>
+
+        <label>
+          <input type="radio" formControlName="tamano" value="chica">
+          Chica $40
+        </label>
+
+        <label>
+          <input type="radio" formControlName="tamano" value="mediana">
+          Mediana $80
+        </label>
+
+        <label>
+          <input type="radio" formControlName="tamano" value="grande">
+          Grande $120
+        </label>
+
+      </fieldset>
+
+      <fieldset>
+        <legend>Ingredientes</legend>
+
+        <label>
+          <input type="checkbox" formControlName="jamon">
+          Jamón $10
+        </label>
+
+        <label>
+          <input type="checkbox" formControlName="pina">
+          Piña $10
+        </label>
+
+        <label>
+          <input type="checkbox" formControlName="champinones">
+          Champiñones $10
+        </label>
+
+      </fieldset>
+
+      <div class="cantidad-pizzas">
+
+        <label>Núm. de Pizzas:</label>
+        <input type="number" min="1" formControlName="cantidad">
+
+        <button type="submit">Agregar</button>
+
+      </div>
+
+    </div>
+
+  </form>
+
+</div>

@@ -1,0 +1,72 @@
+
+<div class="ventas-contenedor">
+
+  <fieldset>
+
+    <legend>Consulta de ventas</legend>
+
+    <div class="filtros">
+
+      <label for="tipo">Consultar por:</label>
+
+      <select
+        id="tipo"
+        [(ngModel)]="tipoConsulta"
+        (ngModelChange)="cambiarTipo()">
+
+        <option value="dia">Día de la semana</option>
+        <option value="mes">Mes</option>
+
+      </select>
+
+      <label for="valor">Seleccionar:</label>
+
+      <select id="valor" [(ngModel)]="valorConsulta">
+        <option value="">Seleccione</option>
+        <option *ngFor="let opcion of opciones" [value]="opcion">
+          {{opcion | titlecase}}
+        </option>
+      </select>
+
+      <button type="button" (click)="consultarVentas()">
+        Consultar
+      </button>
+
+    </div>
+
+    <p *ngIf="mensaje">{{mensaje}}</p>
+
+    <div class="lista-ventas">
+
+      <div *ngFor="let venta of ventas" class="venta">
+
+        <div>
+          <strong>{{venta.nombre}}</strong>
+          <span>{{venta.total | currency:'MXN'}}</span>
+        </div>
+
+        <button
+          type="button"
+          (click)="mostrarDetalle(venta.idpedido)">
+          Ver detalle
+        </button>
+
+      </div>
+
+      <p *ngIf="ventas.length === 0">
+        No hay ventas registradas.
+      </p>
+
+    </div>
+
+    <h3>
+      Ventas totales: {{totalVentas | currency:'MXN'}}
+    </h3>
+
+  </fieldset>
+
+  <button type="button" class="boton-hoy" (click)="consultarHoy()">
+    Mostrar ventas de hoy
+  </button>
+
+</div>

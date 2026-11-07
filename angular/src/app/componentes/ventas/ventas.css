@@ -1,0 +1,95 @@
+
+.ventas-contenedor {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+fieldset {
+  background-color: white;
+  border: none;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+  min-height: 0;
+}
+
+legend {
+  font-size: 20px;
+  font-weight: bold;
+  color: #243247;
+  margin-bottom: 20px;
+}
+
+.filtros {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.filtros label {
+  font-size: 14px;
+}
+
+select {
+  padding: 7px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.lista-ventas {
+  min-height: 100px;
+}
+
+.venta {
+  background-color: #f5f6f8;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 12px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.venta div {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.venta button {
+  display: block;
+  margin-left: auto;
+}
+
+h3 {
+  text-align: right;
+  margin-top: 20px;
+  font-size: 17px;
+  color: #243247;
+}
+
+button {
+  background-color: #42668b;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 9px 15px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #345475;
+}
+
+.boton-hoy {
+  display: block;
+  margin: 20px auto 0;
+}
